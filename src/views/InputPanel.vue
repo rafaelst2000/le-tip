@@ -14,34 +14,51 @@
               <strong>$</strong>
              <input type="number" name="value" v-model="value">
             </div>
-            {{value}}
           </card>
 
           <card class="input-panel__range">
-            <span>Moeda</span>
-            <div class="center">
-             <toggle /> 
+            <div class="between">
+              <span>Gorjeta</span>
+              <span class="input-panel__range--value">{{ tip }}%</span>
             </div>
+            <vue-slider
+              v-model="tip"
+              dot-size="18"
+              height="12px"
+              :min="10"
+              :max="20"
+              :interval="1"
+              tooltip="none"
+             />
 
-            <span>Valor</span>
-            <div class="input-container">
-              <strong>$</strong>
-             <input type="number" name="value" v-model="value">
+            <div class="between">
+              <span>Pessoas</span>
+              <span class="input-panel__range--value">{{ people }}</span>
             </div>
-            {{value}}
+            <vue-slider
+              v-model="people"
+              dot-size="18"
+              height="12px"
+              :min="2"
+              :max="16"
+              :interval="1"
+              tooltip="none"
+             />
           </card>
       </div>
   </section>
 </template>
 
 <script>
+import VueSlider from 'vue-slider-component'
 import Card from '../components/Card.vue'
 import Toggle from '../components/Toggle.vue'
 export default {
   name: 'InputPanel',
   components: {
     Card,
-    Toggle
+    Toggle,
+    VueSlider
   },
   props: {
     myProp: {
@@ -50,7 +67,9 @@ export default {
     }
   },
   data: () => ({
-    value: 0
+    value: 0,
+    tip: 10,
+    people: 2,
   }),
   computed: {},
   watch: {},
@@ -60,6 +79,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+::v-deep .vue-slider-dot{
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
+}
+
+::v-deep .vue-slider-rail{
+  background-image: linear-gradient(to right bottom, rgba(228, 218, 254, 0.7), rgba(211, 203, 252, 0.7), rgba(191, 188, 250,  0.7), rgba(168, 175, 249,  0.7), rgba(141, 162, 248,  0.7));
+  border-radius: 5px;
+}
+
 .input-panel{
   height: 100%;
   display: grid;
@@ -68,8 +99,8 @@ export default {
 
   & .input-panel__card{
     width: 520px;
-    background-image: linear-gradient(to right bottom, rgba(228, 218, 254, 0.5), rgba(211, 203, 252, 0.5), rgba(191, 188, 250, 0.5), rgba(168, 175, 249, 0.5), rgba(141, 162, 248, 0.5));
-    height: calc(100vh - 40px);
+/*     background-image: linear-gradient(to right bottom, rgba(228, 218, 254, 0.5), rgba(211, 203, 252, 0.5), rgba(191, 188, 250, 0.5), rgba(168, 175, 249, 0.5), rgba(141, 162, 248, 0.5));
+ */    height: calc(100vh - 40px);
     border-radius: 10px;
     padding: 20px;
   }
@@ -104,5 +135,11 @@ export default {
   & .input-panel__range{
     margin-top: 24px;
   }
+
+  & .input-panel__range--value{
+    color: #6d8ffe
+  }
+
 }
+
 </style>

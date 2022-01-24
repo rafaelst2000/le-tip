@@ -88,6 +88,12 @@ textarea:focus {
   justify-content: center;
 }
 
+.between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .v-enter,
 .v-leave-to {
   opacity: 0;
