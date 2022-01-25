@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import InputPanel from '../views/InputPanel.vue'
+import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'InputPanel',
-    component: InputPanel
+    name: 'Home',
+    component: Home
   }
 ]
 

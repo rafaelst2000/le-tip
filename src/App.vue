@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <main id="main">
-      <transition mode="out-in">
         <router-view />
-      </transition>
     </main>
   </div>
 </template>
@@ -55,6 +53,9 @@ img {
 
 #main {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 label {
@@ -69,7 +70,7 @@ textarea {
   box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
   transition: all 0.3s;
   font-size: 1rem;
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   margin-bottom: 15px;
   width: 100%;
 }
@@ -92,24 +93,6 @@ textarea:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.v-enter,
-.v-leave-to {
-  opacity: 0;
-}
-
-.v-enter {
-  transform: translate3d(0, -20px, 0);
-}
-
-.v-leave-to {
-  transform: translate3d(0, 20px, 0);
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: all 0.3s;
 }
 
 input::-webkit-outer-spin-button,

@@ -1,8 +1,6 @@
 <template>
   <section class="input-panel">
       <div class="input-panel__card">
-          <h1>Le/Tip</h1>
-
           <card>
             <span>Moeda</span>
             <div class="center">
@@ -93,14 +91,10 @@ export default {
 
 .input-panel{
   height: 100%;
-  display: grid;
-  align-content: center;
-  justify-items: center;
-
   & .input-panel__card{
     width: 520px;
 /*     background-image: linear-gradient(to right bottom, rgba(228, 218, 254, 0.5), rgba(211, 203, 252, 0.5), rgba(191, 188, 250, 0.5), rgba(168, 175, 249, 0.5), rgba(141, 162, 248, 0.5));
- */    height: calc(100vh - 40px);
+ */ 
     border-radius: 10px;
     padding: 20px;
   }
@@ -114,7 +108,7 @@ export default {
   }
 
   & span {
-    color: #d1dce7;
+    color: #818488;
     font-weight: bold;
     font-size: 16px;
     margin: 12px 0;
