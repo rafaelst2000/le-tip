@@ -1,16 +1,18 @@
 <template>
   <section class="input-panel">
       <div class="input-panel__card">
+
+        {{input}}
           <card>
             <span>Moeda</span>
             <div class="center">
-             <toggle /> 
+             <toggle :toggle.sync="input.toggle" /> 
             </div>
 
             <span>Valor</span>
             <div class="input-container">
               <strong>$</strong>
-             <input type="number" name="value" v-model="value">
+             <input type="number" name="value" v-model="input.value">
             </div>
           </card>
 
@@ -20,7 +22,7 @@
               <span class="input-panel__range--value">{{ tip }}%</span>
             </div>
             <vue-slider
-              v-model="tip"
+              v-model="input.tip"
               dot-size="18"
               height="12px"
               :min="10"
@@ -34,7 +36,7 @@
               <span class="input-panel__range--value">{{ people }}</span>
             </div>
             <vue-slider
-              v-model="people"
+              v-model="input.people"
               dot-size="18"
               height="12px"
               :min="2"
@@ -59,20 +61,29 @@ export default {
     VueSlider
   },
   props: {
-    myProp: {
-      type: String,
-      default: ''
+    isMobile: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => ({
-    value: 0,
-    tip: 10,
-    people: 2,
+    input: {
+      toggle: 'EUR',
+      value: 0,
+      tip: 10,
+      people: 2,
+    }
   }),
   computed: {},
-  watch: {},
+  watch: {
+    data: {
+      deep: true,
+      handler: function(){
+        this.$emit('input', this.input)
+      }
+    }
+  },
   mounted() {},
-  methods: {}
 }
 </script>
 
@@ -90,6 +101,7 @@ export default {
 }
 
 .input-panel{
+  position: relative;
   height: 100%;
   width: 100%;
   & .input-panel__card{
@@ -131,6 +143,7 @@ export default {
   & .input-panel__range--value{
     color: #6d8ffe
   }
+
 }
 
 @media (max-width: 1060px) { 

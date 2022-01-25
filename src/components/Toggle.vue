@@ -1,9 +1,9 @@
 <template>
   <div class="toggle">
-    <div @click="toggle = 'EUR'" class="toggle__item left" :class="toggle === 'EUR' ? 'toggle__item--active' : ''">
+    <div @click="input = 'EUR'" class="toggle__item left" :class="toggle === 'EUR' ? 'toggle__item--active' : ''">
       <span>EUR</span>
     </div>
-    <div @click="toggle = 'USD'" class="toggle__item right" :class="toggle === 'USD' ? 'toggle__item--active' : ''">
+    <div @click="input = 'USD'" class="toggle__item right" :class="toggle === 'USD' ? 'toggle__item--active' : ''">
       <span>USD</span>  
     </div>
   </div>
@@ -14,18 +14,19 @@ export default {
   name: 'Toogle',
   components: {},
   props: {
-    myProp: {
+    toggle: {
       type: String,
-      default: ''
+      default: 'EUR'
     }
   },
-  data: () => ({
-    toggle: 'EUR'
-  }),
-  computed: {},
-  watch: {
-    toggle(){
-      this.$emit('input', this.toggle)
+  computed: {
+    input: {
+      get() {
+        return this.toggle
+      },
+      set(newVal) {
+        this.$emit('update:toggle', newVal)
+      }
     }
   },
   mounted() {},
