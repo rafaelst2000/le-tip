@@ -71,7 +71,6 @@ export default {
   & .output-panel__container{
     width: 520px;
     border-radius: 10px;
-    padding: 20px;
   }
 
   & h1 {
@@ -114,6 +113,24 @@ export default {
     color: #6d8ffe
   }
 
+}
+
+@media (max-width: 1060px) { 
+  .output-panel{
+      & .output-panel__container{
+        width: 320px;
+        max-width: 100%;
+    }  
+  }
+}
+
+@media (max-width: 720px) { 
+  .output-panel{
+      & .output-panel__container{
+        width: 100%;
+        max-width: 100%;
+    }  
+  }
 }
 
 </style>

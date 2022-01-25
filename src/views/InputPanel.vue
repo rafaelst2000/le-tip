@@ -91,12 +91,10 @@ export default {
 
 .input-panel{
   height: 100%;
+  width: 100%;
   & .input-panel__card{
     width: 520px;
-/*     background-image: linear-gradient(to right bottom, rgba(228, 218, 254, 0.5), rgba(211, 203, 252, 0.5), rgba(191, 188, 250, 0.5), rgba(168, 175, 249, 0.5), rgba(141, 162, 248, 0.5));
- */ 
     border-radius: 10px;
-    padding: 20px;
   }
 
   & h1 {
@@ -133,7 +131,26 @@ export default {
   & .input-panel__range--value{
     color: #6d8ffe
   }
+}
 
+@media (max-width: 1060px) { 
+  .input-panel{
+    height: 100%;
+      & .input-panel__card{
+        width: 320px;
+        max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 1060px) { 
+  .input-panel{
+    height: 100%;
+      & .input-panel__card{
+        width: 100%;
+        max-width: 100%;
+    }
+  }
 }
 
 </style>

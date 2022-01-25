@@ -68,4 +68,10 @@ export default {
   background: #6d8ffe;
   color: white;
 }
+
+@media (max-width: 1060px) { 
+  .toggle {
+    width: 100%;
+  }
+}
 </style>
